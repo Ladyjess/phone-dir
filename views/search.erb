@@ -1,0 +1,21 @@
+<h1>Search List</h1>
+
+
+<form action="/search" method="post">
+  <label for="search_term">Contact:</label>
+  <input id="search_term" name="search_term" type="text">
+
+
+  <button type="submit" class="btn btn-sm btn-danger">Search</button>
+</form>
+
+<% if not @my_contacts.nil? and not @my_contacts.empty? %>
+
+<h3>Here are the list of contacts: </h3>
+<ul>
+  <% @my_contacts.each() do |contact| %>
+  <li><a href="/contacts/<%= contact.id() %>"><%= contact.contact_name() %></a></li>
+  <% end %>
+</ul>
+
+<% end %>
